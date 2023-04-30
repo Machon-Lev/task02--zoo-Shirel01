@@ -1,0 +1,12 @@
+﻿cmake_minimum_required (VERSION 3.15)
+project (task_week3_shirel_) 
+set (CMAKE_CXX_STANDARD 20)
+set (CMAKE_CXX_STANDARD_REQUIRED ON)
+set (CMAKE_CXX_EXTENSIONS OFF)
+if (MSVC)
+add_compile_options ()
+endif ()
+
+add_executable (task_week3_shirel_ "")
+add_subdirectory (include)
+add_subdirectory (src)
