@@ -7,4 +7,6 @@ public:
 	char const getInitial() override;
 	void step() override;
 	void move() override;
+
+	void turnHorizontally()override;
 };

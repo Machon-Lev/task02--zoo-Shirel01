@@ -3,8 +3,113 @@
 #include <ctime>   // For time()
 #pragma once
 void Shark::step() {
+
+    // Generate a random direction
+    int randomDirection = rand() % 8; // Generate a random number between 0 and 7
+
+    // Map the random number to a specific direction
+    switch (randomDirection)
+    {
+    case 0:
+        direction = Direction::UP;
+        break;
+    case 1:
+        direction = Direction::DOWN;
+        break;
+    case 2:
+        direction = Direction::LEFT;
+        break;
+    case 3:
+        direction = Direction::RIGHT;
+        break;
+    case 4:
+        direction = Direction::UP_LEFT;
+        break;
+    case 5:
+        direction = Direction::UP_RIGHT;
+        break;
+    case 6:
+        direction = Direction::DOWN_LEFT;
+        break;
+    case 7:
+        direction = Direction::DOWN_RIGHT;
+        break;
+    }
+
+    // Move in the selected direction for 5 cells
+    for (size_t i = 0; i < 5; i++)
+    {
+        // Check if the shark reaches the board's boundaries
+        if (location.row <= 0 || location.row >= ROWS - 1 || location.column <= 0 || location.column >= COLUMNS - 1)
+        {
+            // Turn around if the boundaries are reached
+            switch (direction)
+            {
+            case Direction::UP:
+                direction = Direction::DOWN;
+                break;
+            case Direction::DOWN:
+                direction = Direction::UP;
+                break;
+            case Direction::LEFT:
+                direction = Direction::RIGHT;
+                break;
+            case Direction::RIGHT:
+                direction = Direction::LEFT;
+                break;
+            case Direction::UP_LEFT:
+                direction = Direction::DOWN_RIGHT;
+                break;
+            case Direction::UP_RIGHT:
+                direction = Direction::DOWN_LEFT;
+                break;
+            case Direction::DOWN_LEFT:
+                direction = Direction::UP_RIGHT;
+                break;
+            case Direction::DOWN_RIGHT:
+                direction = Direction::UP_LEFT;
+                break;
+            }
+        }
+
+        // Move to the next cell in the selected direction
+        switch (direction)
+        {
+        case Direction::UP:
+            location.row--;
+            break;
+        case Direction::DOWN:
+            location.row++;
+            break;
+        case Direction::LEFT:
+            location.column--;
+            break;
+        case Direction::RIGHT:
+            location.column++;
+            break;
+        case Direction::UP_LEFT:
+            location.row--;
+            location.column--;
+            break;
+        case Direction::UP_RIGHT:
+            location.row--;
+            location.column++;
+            break;
+        case Direction::DOWN_LEFT:
+            location.row++;
+            location.column--;
+            break;
+        case Direction::DOWN_RIGHT:
+            location.row++;
+            location.column++;
+            break;
+        }
+    }
+
+
     isMoving = true;
-}// TO DO erase this line}
+}
+// TO DO erase this line}
 //    if (!isMoving()) {
 //        return;
 //    }
@@ -31,21 +136,11 @@ void Shark::step() {
 //            getLocation().row = newY;
 //        }
 //    }
-//}
-
-
+//
 void Shark::move()
 {
     if (isMoving)
         return;
 
-    else
-    {
-        direction = Direction((rand() % 3) - 1);// CHANGE THIS, (rand() % 3) - 1);
-
-    }
-    // case the random direction is to not move
-    //while (direction.row==0  && direction.column == 0);
-
-    isMoving = true;
 }
+

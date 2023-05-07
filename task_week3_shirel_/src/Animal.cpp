@@ -2,21 +2,23 @@
 
 void Animal::turnHorizontally()
 {
-    if (direction == "left") {
-        direction = "right";
+    if (direction == Direction::LEFT) {
+        direction = Direction::RIGHT;
     }
     else {
-        direction = "right";
+        direction = Direction::LEFT;
     }
 }
+
 void Animal::turnVertically() {
-    if (direction == "up") {
-        direction = "down";
+    if (direction == Direction::UP) {
+        direction = Direction::DOWN;
     }
     else {
-        direction = "up";
+        direction = Direction::UP;
     }
 }
+
 void Animal::printDetails() const
 {
     cout << " Name: " << name << " Type: " << type << "Location: " << location; 
@@ -44,3 +46,4 @@ void Animal::printDetails() const
     //    }
     //}
 
+//hello

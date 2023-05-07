@@ -57,3 +57,11 @@ void Lion::move()
     direction = (Direction)(3 + (rand() % 2));
     isMoving = true;
 }
+void Lion::turnHorizontally() {
+    if (direction == Direction::LEFT) {
+        direction = Direction::RIGHT;
+    }
+    else {
+        direction = Direction::LEFT;
+    }
+}

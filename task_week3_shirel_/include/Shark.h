@@ -10,5 +10,5 @@ public:
 		void step()override;
 
 		void move()override;
-
+		
 };

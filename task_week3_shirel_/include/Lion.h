@@ -14,5 +14,5 @@ public:
 	
 	void move()override; // to implement
 	//string generateDirection();
-
+	void turnHorizontally()override;
 };
