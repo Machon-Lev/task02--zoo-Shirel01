@@ -11,6 +11,7 @@ class Zoo
 
 private:
 	vector<unique_ptr<Animal>> animalsInZoo;
+	//std::vector<Animal*> animalsInZoo;
 	//vector <Animal*> animalsInZoo;
 	void stop(int numberofanimal);////cause to animal to stop and and only a call to move will  cause it to move
     void move(int numberofanimal); // cause to animal to pass to mode movement relevant if was in stop .when start moving rand the direction again

@@ -64,7 +64,7 @@ void Zoo::del(int numberofanimal)
     }
 
     animalsInZoo.erase(animalsInZoo.begin() + numberofanimal - 1);
-    std::cout << "Animal " << numberofanimal << " was deleted." << std::endl;
+    //std::cout << "Animal " << numberofanimal << " was deleted." << std::endl;
 }
 
 
@@ -110,21 +110,16 @@ void Zoo::help() const
 
 void Zoo::run()
 {
-    
+    animalsInZoo.emplace_back(new Shark("Jaws", randLocation()));
+    animalsInZoo.emplace_back(new Lion("Simba", randLocation()));
+    animalsInZoo.emplace_back(new Lion("Mufasa", randLocation()));
+    animalsInZoo.emplace_back(new Dog("toto", randLocation()));
 
     bool running = true;
 
     while (running) {
-
-        Shark s("Jaws", randLocation());
-        Lion l1("Simba", randLocation());
-        Lion l2("Mufasa", randLocation());
-        Dog d("toto", randLocation());
-        /*animalsInZoo.push_back(&s);
-        animalsInZoo.push_back(&l1);
-        animalsInZoo.push_back(&l2);
-
-        animalsInZoo.push_back(&d);*/
+       
+        
         display();
         std::string input;
         std::cout << "Enter a command (stop ,move, create, del, delAll, help, exit, . ): ";
